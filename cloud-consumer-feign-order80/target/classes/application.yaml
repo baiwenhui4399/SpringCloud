@@ -1,0 +1,22 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    # 注册进 Eureka 的服务中心
+    register-with-eureka: false
+    # 检索 服务中心 的其它服务
+    service-url:
+      # 设置与 Eureka Server 交互的地址
+      #      defaultZone: http://localhost:7001/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+#设置feign客户端超时时间，openfeign默认支持ribbon
+ribbon:
+  #建立连接所用的时间
+  ReadTimeout: 5000
+  #建立连接后从服务器读到可用资源所用的时间
+  ConnectTimeout: 5000
+logging:
+  level:
+    #feign日志以什么级别监控哪个接口
+    com.bai.springcloud.service.PaymentFeignService: debug
